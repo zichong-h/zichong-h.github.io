@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>1.md</title>
+      <link href="2021/03/13/1-md/"/>
+      <url>2021/03/13/1-md/</url>
+      
+        <content type="html"><![CDATA[<h1 id="1-docker使用"><a href="#1-docker使用" class="headerlink" title="1. docker使用"></a>1. docker使用</h1><br/><br/><h2 id="1-1-基础关系"><a href="#1-1-基础关系" class="headerlink" title="1.1. 基础关系"></a>1.1. 基础关系</h2><p><img src="https://raw.githubusercontent.com/zichong-h/images/main/1615308775_20210310000415293_7804.png"><br><br/></p><h2 id="1-2-常用命令"><a href="#1-2-常用命令" class="headerlink" title="1.2. 常用命令"></a>1.2. 常用命令</h2><h3 id="1-2-1-列出镜像列表"><a href="#1-2-1-列出镜像列表" class="headerlink" title="1.2.1. 列出镜像列表"></a>1.2.1. 列出镜像列表</h3><p>使用<code>docker images</code>列出本地的镜像<br><img src="https://raw.githubusercontent.com/zichong-h/images/main/1615308776_20210310001626585_4951.png"></p><pre class="line-numbers language-none"><code class="language-none">REPOSITORY：表示镜像的仓库源TAG：镜像的标签IMAGE ID：镜像IDCREATED：镜像创建时间SIZE：镜像大小<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="1-2-2-获取镜像"><a href="#1-2-2-获取镜像" class="headerlink" title="1.2.2. 获取镜像"></a>1.2.2. 获取镜像</h3><p>使用<code>docker search 镜像名</code>查询镜像</p><p><img src="https://raw.githubusercontent.com/zichong-h/images/main/1615308777_20210310002435228_24766.png"><br><br/><br>使用<code> docker pull 镜像名</code>下载镜像<br><img src="https://raw.githubusercontent.com/zichong-h/images/main/1615308779_20210310002535398_15366.png"></p><pre class="line-numbers language-none"><code class="language-none">其中 docker pull acgpiano&#x2F;sqli-labs 与 docker pull acgpiano&#x2F;sqli-labs:latest 效果一样,如果不加后缀默认下载最新版本<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><br/><h3 id="1-2-3-运行镜像"><a href="#1-2-3-运行镜像" class="headerlink" title="1.2.3. 运行镜像"></a>1.2.3. 运行镜像</h3><p>使用<code>docker run 镜像名</code>运行镜像</p><p> <img src="https://raw.githubusercontent.com/zichong-h/images/main/1615308781_20210310003120986_12938.png"></p><pre class="line-numbers language-none"><code class="language-none">-d: 后台运行,不会占用shell窗口-P :是容器内部端口随机映射到主机的高端口。-p: 是容器内部端口绑定到指定的主机端口(端口前加IP可以指定绑定IP)如果需要绑定TCP端口可以在端口后添加 &#x2F;tcp eg: 80:80&#x2F;tcp  UDP同理<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><br/><h3 id="1-2-4-停止与重启镜像"><a href="#1-2-4-停止与重启镜像" class="headerlink" title="1.2.4. 停止与重启镜像"></a>1.2.4. 停止与重启镜像</h3><p>使用<code>docker stop &lt;容器 ID&gt;</code>停止指定镜像<br><img src="https://raw.githubusercontent.com/zichong-h/images/main/1615308782_20210310004035888_2427.png"><br>使用<code>docker restart &lt;容器 ID&gt;</code>重启镜像<br><img src="https://raw.githubusercontent.com/zichong-h/images/main/1615308783_20210310004220535_15116.png"><br><br/></p><h3 id="1-2-5-进入镜像"><a href="#1-2-5-进入镜像" class="headerlink" title="1.2.5. 进入镜像"></a>1.2.5. 进入镜像</h3><p>使用<code>docker attach &lt;ID&gt;</code></p><pre class="line-numbers language-none"><code class="language-none">不建议使用,因为使用该命令进入调试完成后退出后镜像会一起关闭<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>使用<code>docker exec &lt;ID&gt;</code><br><img src="https://raw.githubusercontent.com/zichong-h/images/main/1615308783_20210310004646642_32346.png"></p><pre class="line-numbers language-none"><code class="language-none">&#x2F;bin&#x2F;bash: 指定进入镜像后使用的shell-i: 交互式-t: 开启一个虚拟终端<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>test.md</title>
+      <link href="2021/03/13/test-md/"/>
+      <url>2021/03/13/test-md/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+  
+  
+</search>
