@@ -482,7 +482,8 @@ hacker@Hacker:~&#x2F;Desktop$ echo $name
 zichongh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="2-2-4-变量的赋值"><a href="#2-2-4-变量的赋值" class="headerlink" title="2.2.4. 变量的赋值"></a>2.2.4. 变量的赋值</h3><ol>
-<li><p>赋值时使用引号</p>
+<li>赋值时使用引号</li>
+</ol>
 <ul>
 <li><p>双引号: 允许通过$符号引用其他变量值</p>
 <pre class="line-numbers language-none"><code class="language-none">hacker@Hacker:~&#x2F;Desktop$ a&#x3D;whoami
@@ -490,18 +491,22 @@ hacker@Hacker:~&#x2F;Desktop$ b&#x3D;&quot;$a&quot;
 hacker@Hacker:~&#x2F;Desktop$ echo $b
 whoami<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>单引号: 禁止引用其他变量值,$视为普通值</p>
+</li>
+</ul>
 <pre class="line-numbers language-none"><code class="language-none">hacker@Hacker:~&#x2F;Desktop$ a&#x3D;whoami
 hacker@Hacker:~&#x2F;Desktop$ b&#x3D;&#39;$a&#39;
 hacker@Hacker:~&#x2F;Desktop$ echo $b
-$a<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>反撇号: 命令替换,提取命令执行后的输出结果</p>
+$a<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ul>
+<li>反撇号: 命令替换,提取命令执行后的输出结果</li>
+</ul>
 <pre class="line-numbers language-none"><code class="language-none">hacker@Hacker:~&#x2F;Desktop$ a&#x3D;whoami
 hacker@Hacker:~&#x2F;Desktop$ b&#x3D;&#96;$a&#96;
 hacker@Hacker:~&#x2F;Desktop$ echo $b
-hacker<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ul>
-</li>
-</ol>
+hacker<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
 <ol start="2">
 <li>从键盘输入内容为变量赋值</li>
 </ol>
